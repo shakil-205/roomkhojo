@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+< lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>RoomKhojo - Find Your Home</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<footer>
+    <h3>🏠 RoomKhojo</h3>
+    <p>Find Your Room. Find Your Home.</p>
+    <p>Serving All Districts of Assam</p>
+    <p>© 2026 RoomKhojo. All Rights Reserved.</p>
+</footer>
+<body>
+
+    <h1>🏠 Welcome to RoomKhojo</h1>
+
+    <h2>Find Your Room. Find Your Home.</h2>
+
+    <p>
+        Discover affordable rooms, PGs
+        and flats across Assam.
+    </p>
+
+    <h3>Our Services</h3>
+
+    <p>Single Rooms</p>
+    <p>PG Accommodation</p>
+    <p>1 BHK Flats</p>
+    <p>2 BHK Flats</p>
+    <p>Independent Houses</p>
+
+    <h3>Starting from Guwahati</h3>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">Find Rooms</a>
+    <a href="#">PG</a>
+    <a href="#">List Property</a>
+    <a href="#">Contact</a>
+
+  <section class="search-box">
+
+    <h2>Find Your Perfect Room</h2>
+
+    <input type="text" placeholder="Enter location (e.g. Guwahati)">
+
+    <select>
+    <option value="">Select Accommodation Type</option>
+
+    <optgroup label="Rooms">
+        <option>Single Room</option>
+        <option>Double Room</option>
+    </optgroup>
+
+    <optgroup label="Room Types">
+        <option>1 RK</option>
+        <option>2 RK</option>
+        <option>1 BHK</option>
+        <option>2 BHK</option>
+        <option>3 BHK</option>
+    </optgroup>
+
+    <optgroup label="PG Accommodation">
+        <option>PG - Single Occupancy</option>
+        <option>PG - Double Sharing</option>
+        <option>PG - Triple Sharing</option>
+    </optgroup>
+
+    <optgroup label="Other">
+        <option>Independent House</option>
+    </optgroup>
+        
+    </select>
+    <select id="budget">
+    <option value="">Select Monthly Budget</option>
+    <option value="3000">Below ₹3,000</option>
+    <option value="5000">₹3,000 – ₹5,000</option>
+    <option value="8000">₹5,000 – ₹8,000</option>
+    <option value="12000">₹8,000 – ₹12,000</option>
+    <option value="15000">₹12,000 – ₹15,000</option>
+    <option value="20000">Above ₹15,000</option>
+    </select>
+    <select id="gender">
+    <option value="">Select Gender Preference</option>
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+    <option value="any">Any Gender</option>
+    <option value="family">Family</option>
+    </select>
+    <select id="furnishing">
+    <option value="">Select Furnishing Type</option>
+    <option value="fully-furnished">Fully Furnished</option>
+    <option value="semi-furnished">Semi Furnished</option>
+    <option value="unfurnished">Unfurnished</option>
+    </select>
+
+    <button onclick="searchRooms()">Search Rooms</button>
+<div id="searchResults">
+    <button onclick="clearSearch()">Clear Search</button>
+</div>
+  </section>
+  <section class="properties">
+
+    <h2>Explore Properties</h2>
+
+      <div class="property-card">
+
+    <h3>🏠 Demo Room in Guwahati</h3>
+
+    <p>📍 Location: Bhangagarh, Guwahati</p>
+
+    <p>🏷️ Type: Single Room</p>
+
+    <p>💰 Rent: ₹4,000/month</p>
+
+    <p>🛏️ Furnishing: Semi-Furnished</p>
+
+    <p>Availability: Demo Listing Only</p>
+
+    <button onclick="alert('Demo property: Enquiry feature coming soon!')">
+        Contact Owner
+    </button>
+
+      </div>
+        <h3>🏠 Single Rooms</h3>
+        <p>Affordable rooms for students and working professionals.</p>
+    </>
+
+    <div class="property-card">
+        <h3>🏢 PG Accommodation</h3>
+        <p>Comfortable PG accommodation across Assam.</p>
+    </div>
+
+    <div class="property-card">
+        <h3>🏡 1 BHK & 2 BHK Flats</h3>
+        <p>Find a flat that suits your budget.</p>
+    </div>
+
+    <div class="property-card">
+        <h3>🏘️ Independent Houses</h3>
+        <p>Explore houses for rent across Assam.</p>
+    </div>
+
+  </section>
+  <section class="owner-section">
+
+    <h2>Are You a Property Owner?</h2>
+
+    <p>List your room, PG or flat on RoomKhojo and connect with potential tenants.</p>
+
+    <button onclick="alert('Thank you for your interest! Contact RoomKhojo to list your property.')">
+        List Your Property
+    </button>
+
+  </section>
+  <section class="listing-form">
+
+    <h2>List Your Property</h2>
+    <label>Upload Property Photos</label>
+
+<input
+    type="file"
+    id="propertyPhotos"
+    accept="image/*"
+    multiple
+>
+
+<div id="imagePreview"></div>
+
+    <p>Find tenants for your property through RoomKhojo.</p>
+
+    <input type="text" placeholder="Owner Name">
+
+    <input type="tel" placeholder="Mobile Number">
+
+    <input type="text" placeholder="District">
+
+    <h3>📍 Property Location</h3>
+
+<input
+    type="text"
+    id="propertyLocation"
+    placeholder="Enter or correct property location"
+>
+
+<button type="button" onclick="getOwnerLocation()">
+    📍 Detect My Current Location
+</button>
+
+<p id="locationStatus">
+    You can edit your location manually if GPS is inaccurate.
+</p>
+
+<label>
+    <input type="checkbox" id="agentHelp">
+    I need help from a RoomKhojo agent to add my property location.
+</label>
+
+<textarea
+    id="locationNote"
+    placeholder="Additional location details (landmark, road, nearby place)"
+></textarea>
+
+    <select>
+        <option value="">Select Property Type</option>
+        <option>Single Room</option>
+        <option>Double Room</option>
+        <option>1 RK</option>
+        <option>2 RK</option>
+        <option>1 BHK</option>
+        <option>2 BHK</option>
+        <option>PG - Single Occupancy</option>
+        <option>PG - Double Sharing</option>
+        <option>PG - Triple Sharing</option>
+        <option>Independent House</option>
+    </select>
+
+    <input type="number" placeholder="Monthly Rent (₹)">
+
+    <textarea placeholder="Describe your property"></textarea>
+
+    <button type="button" onclick="alert('Property submission feature coming soon!')">
+        Submit Property
+    </button>
+
+  </section>
+  <section class="contact-section">
+
+    <h2>Contact RoomKhojo</h2>
+
+    <p>Have questions? We are here to help.</p>
+
+    <p>📍 Serving all districts of Assam</p>
+
+    <p>📞 Contact us for room enquiries and property listings.</p>
+
+    <button onclick="alert('Contact details coming soon!')">
+        Contact Us
+    </button>
+
+  </section>
+  <footer>
+    <h3>🏠 RoomKhojo</h3>
+    <p>Find Your Room. Find Your Home.</p>
+    <p>Serving All Districts of Assam</p>
+    <p>© 2026 RoomKhojo. All Rights Reserved.</p>
+</footer>
+
+<script>
+
+function searchRooms() {
+
+    let location = document.querySelector('.search-box input').value;
+    let type = document.querySelector('.search-box select').value;
+    let budget = document.getElementById('budget').value;
+    let gender = document.getElementById('gender').value;
+    let furnishing = document.getElementById('furnishing').value;
+
+    if (location.trim() === "") {
+        alert("Please enter a location!");
+        return;
+    }
+
+    document.getElementById("searchResults").style.display = "block";
+
+document.getElementById("searchResults").innerHTML =
+        "<h3>Search Request Received!</h3>" +
+        "<p>Location: " + location + "</p>" +
+        "<p>Property Type: " + (type || "Any") + "</p>" +
+        "<p>Budget: " + (budget || "Any") + "</p>" +
+        "<p>Gender: " + (gender || "Any") + "</p>" +
+        "<p>Furnishing: " + (furnishing || "Any") + "</p>" +
+        "<p>RoomKhojo is preparing your search.</p>";
+}
+  function clearSearch() {
+    document.getElementById("searchResults").innerHTML = "";
+    document.getElementById("searchResults").style.display = "none";
+}
+
+// Photo Upload System
+let selectedPhotos = [];
+
+const photoInput = document.getElementById("propertyPhotos");
+const preview = document.getElementById("imagePreview");
+
+photoInput.addEventListener("change", function() {
+
+    const newFiles = Array.from(photoInput.files);
+alert("Selected photos: " + newFiles.length);
+    if (selectedPhotos.length + newFiles.length > 5) {
+        alert("You can upload a maximum of 5 photos!");
+
+        const dataTransfer = new DataTransfer();
+
+        selectedPhotos.forEach(function(photo) {
+            dataTransfer.items.add(photo);
+        });
+
+        photoInput.files = dataTransfer.files;
+        return;
+    }
+
+    selectedPhotos = selectedPhotos.concat(newFiles);
+
+    const dataTransfer = new DataTransfer();
+
+    selectedPhotos.forEach(function(photo) {
+        dataTransfer.items.add(photo);
+    });
+
+    photoInput.files = dataTransfer.files;
+
+    showPhotoPreview();
+});
+
+function showPhotoPreview() {
+
+    preview.innerHTML = "";
+
+    selectedPhotos.forEach(function(file, index) {
+
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+
+            const container = document.createElement("div");
+            container.style.display = "inline-block";
+            container.style.margin = "5px";
+
+            const img = document.createElement("img");
+            img.src = e.target.result;
+            img.style.width = "100px";
+            img.style.height = "100px";
+            img.style.objectFit = "cover";
+            img.style.borderRadius = "8px";
+
+            const button = document.createElement("button");
+            button.textContent = "Remove";
+            button.type = "button";
+
+            button.onclick = function() {
+
+                selectedPhotos.splice(index, 1);
+
+                const dataTransfer = new DataTransfer();
+
+                selectedPhotos.forEach(function(photo) {
+                    dataTransfer.items.add(photo);
+                });
+
+                photoInput.files = dataTransfer.files;
+
+                showPhotoPreview();
+            };
+
+            container.appendChild(img);
+            container.appendChild(button);
+
+            preview.appendChild(container);
+        };
+
+        reader.readAsDataURL(file);
+    });
+}
+  function getOwnerLocation() {
+
+    const locationInput = document.getElementById("propertyLocation");
+    const status = document.getElementById("locationStatus");
+
+    if (!navigator.geolocation) {
+        status.textContent = "GPS is not supported by your browser.";
+        return;
+    }
+
+    status.textContent = "Detecting your current location...";
+
+    navigator.geolocation.getCurrentPosition(
+
+        function(position) {
+
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+
+            locationInput.value =
+                "Latitude: " + latitude +
+                ", Longitude: " + longitude;
+
+            status.textContent =
+                "Location detected successfully! You can edit it manually.";
+
+        },
+
+        function() {
+            status.textContent =
+                "Unable to detect location. Please enter it manually.";
+
+        },
+
+        {
+            enableHighAccuracy: true,
+            timeout: 15000,
+            maximumAge: 0
+        }
+    );
+  }
+</script>
+</body>
+</html>

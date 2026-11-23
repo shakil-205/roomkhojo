@@ -1,0 +1,242 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fa;
+    color: #173b57;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+h1 {
+    background: #173b57;
+    color: white;
+    padding: 25px 15px;
+    text-align: center;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #159b8c;
+    text-align: center;
+    margin: 20px 0;
+}
+
+h3 {
+    margin: 20px 0 10px;
+}
+
+p {
+    background: white;
+    padding: 14px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px #00000010;
+}
+nav {
+    background: #159b8c;
+    padding: 15px 10px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin: 5px 8px;
+}
+.search-box {
+    background: white;
+    padding: 25px 15px;
+    margin: 20px 0;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 3px 10px #00000015;
+}
+
+.search-box h2 {
+    margin-bottom: 20px;
+}
+
+.search-box input,
+.search-box select {
+    width: 100%;
+    padding: 14px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.search-box button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    background: #159b8c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.properties {
+    margin-top: 30px;
+}
+
+.properties h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.property-card {
+    background: white;
+    padding: 22px;
+    margin: 15px 0;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px #00000015;
+    border-left: 5px solid #159b8c;
+}
+
+.property-card h3 {
+    color: #173b57;
+    margin-bottom: 8px;
+}
+
+.property-card p {
+    color: #555;
+    box-shadow: none;
+    padding: 0;
+}
+.owner-section {
+    background: #173b57;
+    color: white;
+    padding: 30px 20px;
+    margin: 25px 0;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.owner-section h2 {
+    color: white;
+    margin-bottom: 12px;
+}
+
+.owner-section p {
+    background: transparent;
+    color: white;
+    box-shadow: none;
+    padding: 10px 0;
+}
+
+.owner-section button {
+    background: #159b8c;
+    color: white;
+    padding: 14px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 12px;
+}
+.contact-section {
+    background: white;
+    padding: 25px 20px;
+    margin: 25px 0;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 3px 10px #00000015;
+}
+
+.contact-section h2 {
+    color: #159b8c;
+    margin-bottom: 15px;
+}
+
+.contact-section p {
+    color: #555;
+    box-shadow: none;
+}
+
+.contact-section button {
+    background: #173b57;
+    color: white;
+    padding: 14px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+footer {
+    background: #173b57;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+    margin-top: 30px;
+    border-radius: 12px;
+}
+
+footer h3 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+footer p {
+    background: transparent;
+    color: white;
+    box-shadow: none;
+    padding: 5px;
+    margin: 5px;
+}
+@media (max-width: 600px) {
+
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    nav a {
+        font-size: 14px;
+        margin: 6px;
+    }
+
+    .search-box,
+    .property-card,
+    .owner-section,
+    .contact-section {
+        padding: 18px 12px;
+    }
+
+    .search-box h2 {
+        font-size: 21px;
+    }
+
+}
+#searchResults {
+    background: #e8f8f5;
+    border: 1px solid #159b8c;
+    padding: 18px;
+    margin-top: 20px;
+    border-radius: 12px;
+    display: none;
+}
+
+#searchResults h3 {
+    color: #159b8c;
+}
+
+#searchResults p {
+    background: transparent;
+    box-shadow: none;
+    padding: 5px;
+}
