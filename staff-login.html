@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+    name="description"
+    content="Secure RoomKhojo administrator and employee login."
+>
+
+<meta name="color-scheme" content="light">
+
+<title>
+RoomKhojo | Premium+ Staff Login
+</title>
+
+<link rel="stylesheet" href="login.css">
+
+
+<!-- SUPABASE AUTHENTICATION -->
+
+<script
+    defer
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.119.2/dist/umd/supabase.js">
+</script>
+
+
+<!-- CLOUDFLARE TURNSTILE CAPTCHA -->
+
+<script
+    defer
+    src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit">
+</script>
+
+
+<!-- ROOMKHOJO CONFIGURATION -->
+
+<script defer src="auth-config.js"></script>
+
+<script defer src="staff.js"></script>
+
+</head>
+
+
+<body>
+
+<div class="page-shell">
+
+
+    <!-- WEBSITE HEADER -->
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+
+            <span class="logo-mark">
+                ⌂
+            </span>
+
+            <span>
+                Room<span class="logo-accent">Khojo</span>
+            </span>
+
+        </a>
+
+
+        <a href="login.html" class="home-link">
+
+            ← Tenant & Owner Login
+
+        </a>
+
+    </header>
+
+
+
+    <!-- MAIN STAFF LOGIN LAYOUT -->
+
+    <main class="auth-layout">
+
+
+        <!-- PREMIUM BRAND PANEL -->
+
+        <section class="brand-panel">
+
+
+            <div class="glow glow-one"></div>
+
+            <div class="glow glow-two"></div>
+
+
+            <div class="brand-content">
+
+
+                <div class="eyebrow">
+
+                    <span class="signal-dot"></span>
+
+                    ROOMKHOJO WORKSPACE
+
+                </div>
+
+
+
+                <h1>
+
+                    Work Securely.
+
+                    <em>
+                        Build Trust.
+                    </em>
+
+                </h1>
+
+
+
+                <p class="brand-description">
+
+                    Welcome to the RoomKhojo
+                    internal workspace.
+
+                    <br><br>
+
+                    Secure access for authorized
+                    administrators and office employees.
+
+                </p>
+
+
+
+                <!-- STAFF SECURITY FEATURES -->
+
+                <div class="brand-features">
+
+
+                    <div>
+
+                        <span class="feature-icon">
+
+                            👨‍💼
+
+                        </span>
+
+
+                        <p>
+
+                            <strong>
+
+                                Authorized Staff Only
+
+                            </strong>
+
+                            <small>
+
+                                Access restricted to
+                                approved employees
+                                and administrators.
+
+                            </small>
+
+                        </p>
+
+                    </div>
+
+
+
+                    <div>
+
+                        <span class="feature-icon">
+
+                            🔐
+
+                        </span>
+
+
+                        <p>
+
+                            <strong>
+
+                                Two-Factor Authentication
+
+                            </strong>
+
+                            <small>
+
+                                Authenticator-app
+                                verification for
+                                additional security.
+
+                            </small>
+
+                        </p>
+
+                    </div>
+
+
+
+                    <div>
+
+                        <span class="feature-icon">
+
+                            🛡️
+
+                        </span>
+
+
+                        <p>
+
+                            <strong>
+
+                                Human Verification
+
+                            </strong>
+
+                            <small>
+
+                                CAPTCHA protection
+                                against automated
+                                login attempts.
+
+                            </small>
+
+                        </p>
+
+                    </div>
+
+
+
+                    <div>
+
+                        <span class="feature-icon">
+
+                            ◉
+
+                        </span>
+
+
+                        <p>
+
+                            <strong>
+
+                                Biometric Login
+
+                            </strong>
+
+                            <small>
+
+                                Face and fingerprint
+                                passkey login planned.
+
+                            </small>
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="brand-bottom">
+
+                    ● RoomKhojo Internal Workspace
+
+                    <br>
+
+                    Authorized Personnel Only
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- STAFF LOGIN CARD -->
+
+        <section class="auth-card">
+
+
+            <div class="card-top">
+
+
+                <span class="staff-badge">
+
+                    🔐 PRIVATE STAFF ACCESS
+
+                </span>
+
+
+
+                <h2 id="staffTitle">
+
+                    Staff Secure Sign In
+
+                </h2>
+
+
+
+                <p id="staffSubtitle">
+
+                    Sign in with your approved
+                    RoomKhojo staff account.
+
+                </p>
+
+
+            </div>
+
+
+
+            <!-- SECURITY MESSAGES -->
+
+            <div
+                id="staffMessage"
+                class="message"
+                role="status"
+                aria-live="polite"
+                hidden>
+            </div>
+
+
+
+            <!-- STAFF EMAIL LOGIN -->
+
+            <form
+                id="staffLoginForm"
+                class="auth-form">
+
+
+                <label for="staffEmail">
+
+                    Work Email Address
+
+                </label>
+
+
+
+                <input
+                    type="email"
+                    id="staffEmail"
+                    placeholder="Enter your work email"
+                    autocomplete="username"
+                    maxlength="254"
+                    required
+                >
+
+
+
+                <label for="staffPassword">
+
+                    Password
+
+                </label>
+
+
+
+                <div class="password-field">
+
+
+                    <input
+                        type="password"
+                        id="staffPassword"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+
+
+                    <button
+                        type="button"
+                        class="toggle-pass"
+                        data-target="staffPassword">
+
+                        Show
+
+                    </button>
+
+
+                </div>
+
+
+
+                <!-- CAPTCHA -->
+
+                <div
+                    id="staffCaptcha"
+                    class="captcha-slot"
+                    hidden>
+                </div>
+
+
+
+                <div class="auth-note">
+
+                    🛡️ <strong>
+                        Staff Security
+                    </strong>
+
+                    <br><br>
+
+                    Human verification and
+                    two-factor authentication
+                    are required before
+                    access to protected staff data.
+
+                </div>
+
+
+
+                <!-- LOGIN BUTTON -->
+
+                <button
+                    type="submit"
+                    class="primary-button">
+
+                    Verify Staff Credentials →
+
+                </button>
+
+
+
+                <!-- BIOMETRIC LOGIN -->
+
+                <button
+                    type="button"
+                    id="staffPasskey"
+                    class="secondary-button"
+                    disabled>
+
+                    ◉ Face / Fingerprint Login
+
+                    — Coming Soon
+
+                </button>
+
+
+
+                <p class="support-text">
+
+                    Forgot your password?
+
+                    <a href="login.html">
+
+                        Recover Your Account
+
+                    </a>
+
+                </p>
+
+
+            </form>
+
+
+
+            <!-- MFA REGISTRATION -->
+
+            <section
+                id="mfaEnrollPanel"
+                hidden>
+
+
+                <h3>
+
+                    🔐 Set Up Two-Factor
+                    Authentication
+
+                </h3>
+
+
+
+                <p class="field-hint">
+
+                    RoomKhojo staff members must
+                    activate an authenticator app
+                    before accessing protected
+                    internal information.
+
+                    <br><br>
+
+                    You can use Google Authenticator,
+                    Microsoft Authenticator or
+                    another compatible application.
+
+                </p>
+
+
+
+                <button
+                    type="button"
+                    id="beginMfaEnrollment"
+                    class="secondary-button">
+
+                    Set Up Authenticator →
+
+                </button>
+
+
+
+                <!-- MFA QR CODE -->
+
+                <div
+                    id="mfaSetupContent"
+                    class="totp-setup"
+                    hidden>
+
+
+                    <h3>
+
+                        Scan QR Code
+
+                    </h3>
+
+
+
+                    <p class="field-hint">
+
+                        Open your authenticator app
+                        and scan the QR code.
+
+                    </p>
+
+
+
+                    <img
+                        id="totpQr"
+                        class="totp-qr"
+                        alt="RoomKhojo authenticator QR code"
+                        hidden
+                    >
+
+
+
+                    <p class="field-hint">
+
+                        If you cannot scan the QR code,
+                        manually enter this setup key:
+
+                    </p>
+
+
+
+                    <p>
+
+                        <strong id="totpSecret"></strong>
+
+                    </p>
+
+
+
+                    <!-- VERIFY MFA SETUP -->
+
+                    <form
+                        id="mfaEnrollVerify"
+                        class="auth-form">
+
+
+                        <label for="mfaEnrollCode">
+
+                            6-Digit Authenticator Code
+
+                        </label>
+
+
+
+                        <input
+                            type="text"
+                            id="mfaEnrollCode"
+                            placeholder="Enter 6-digit code"
+                            inputmode="numeric"
+                            autocomplete="one-time-code"
+                            pattern="[0-9]{6}"
+                            maxlength="6"
+                            required
+                        >
+
+
+
+                        <button
+                            type="submit"
+                            class="primary-button">
+
+                            Activate MFA →
+
+                        </button>
+
+
+                    </form>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- MFA LOGIN VERIFICATION -->
+
+            <form
+                id="mfaChallengeForm"
+                class="auth-form"
+                hidden>
+
+
+                <h3>
+
+                    🔒 Verify Your Identity
+
+                </h3>
+
+
+
+                <p class="field-hint">
+
+                    For additional security,
+                    enter the current verification
+                    code from your authenticator app.
+
+                </p>
+
+
+
+                <label for="mfaCode">
+
+                    Authenticator Code
+
+                </label>
+
+
+
+                <input
+                    type="text"
+                    id="mfaCode"
+                    placeholder="Enter 6-digit code"
+                    inputmode="numeric"
+                    autocomplete="one-time-code"
+                    pattern="[0-9]{6}"
+                    maxlength="6"
+                    required
+                >
+
+
+
+                <button
+                    type="submit"
+                    class="primary-button">
+
+                    Verify & Continue →
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- SUCCESSFUL STAFF AUTHENTICATION -->
+
+            <section
+                id="staffApproved"
+                class="signed-panel"
+                hidden>
+
+
+                <div class="signed-icon">
+
+                    ✓
+
+                </div>
+
+
+
+                <h3>
+
+                    Staff Identity Verified
+
+                </h3>
+
+
+
+                <p id="staffApprovedLabel"></p>
+
+
+
+                <div class="notice-panel">
+
+                    ✅ Your account role and
+                    two-factor authentication
+                    have been checked.
+
+                    <br><br>
+
+                    Access to the Admin or
+                    Employee Dashboard
+                    will be available after
+                    the remaining database
+                    permissions and security
+                    configuration are completed.
+
+                </div>
+
+
+
+                <!-- FUTURE BIOMETRIC REGISTRATION -->
+
+                <button
+                    type="button"
+                    id="staffRegisterPasskey"
+                    class="secondary-button"
+                    hidden>
+
+                    ◉ Register Face / Fingerprint Passkey
+
+                </button>
+
+
+            </section>
+
+
+
+            <!-- STAFF SIGN OUT -->
+
+            <button
+                type="button"
+                id="staffSignOut"
+                class="back-button"
+                hidden>
+
+                Sign Out Securely
+
+            </button>
+
+
+
+            <!-- STAFF LOGIN FOOTER -->
+
+            <div class="card-footer">
+
+                🔐 Protected Staff Access
+
+                <br>
+
+                Role Verification · MFA · CAPTCHA
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- WEBSITE FOOTER -->
+
+    <footer class="footer-bar">
+
+
+        <span>
+
+            © 2026 RoomKhojo.
+            All Rights Reserved.
+
+        </span>
+
+
+
+        <span>
+
+            Restricted Administrator
+            & Employee Access
+
+        </span>
+
+
+    </footer>
+
+
+</div>
+
+</body>
+
+</html>
