@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+    name="description"
+    content="RoomKhojo secure login and registration for tenants and property owners."
+>
+
+<meta name="color-scheme" content="light">
+
+<title>RoomKhojo | Premium+ Login</title>
+
+<link rel="stylesheet" href="login.css">
+
+<!-- SUPABASE LIBRARY -->
+
+<script
+    defer
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.119.2/dist/umd/supabase.js">
+</script>
+
+<!-- CLOUDFLARE TURNSTILE -->
+
+<script
+    defer
+    src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit">
+</script>
+
+<!-- ROOMKHOJO AUTHENTICATION -->
+
+<script defer src="auth-config.js"></script>
+
+<script defer src="login.js"></script>
+
+</head>
+
+
+<body>
+
+<div class="page-shell">
+
+    <!-- HEADER -->
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+
+            <span class="logo-mark">⌂</span>
+
+            <span>
+                Room<span class="logo-accent">Khojo</span>
+            </span>
+
+        </a>
+
+        <a href="index.html" class="home-link">
+            ← Back to Website
+        </a>
+
+    </header>
+
+
+    <main class="auth-layout">
+
+
+        <!-- PREMIUM BRAND SECTION -->
+
+        <section class="brand-panel">
+
+            <div class="glow glow-one"></div>
+
+            <div class="glow glow-two"></div>
+
+
+            <div class="brand-content">
+
+                <div class="eyebrow">
+
+                    <span class="signal-dot"></span>
+
+                    ASSAM'S RENTAL COMPANION
+
+                </div>
+
+
+                <h1>
+
+                    A better way to
+
+                    <em>find your place.</em>
+
+                </h1>
+
+
+                <p class="brand-description">
+
+                    Discover rooms, PGs and flats.
+
+                    Manage your rental properties.
+
+                    One platform for your next chapter.
+
+                </p>
+
+
+                <div class="brand-features">
+
+
+                    <div>
+
+                        <span class="feature-icon">
+                            ⌂
+                        </span>
+
+                        <p>
+
+                            <strong>
+                                Find the Right Space
+                            </strong>
+
+                            <small>
+                                Explore rooms and rentals across Assam.
+                            </small>
+
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="feature-icon">
+                            ▣
+                        </span>
+
+                        <p>
+
+                            <strong>
+                                Property Owner Management
+                            </strong>
+
+                            <small>
+                                Manage rental properties and records.
+                            </small>
+
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="feature-icon">
+                            ♧
+                        </span>
+
+                        <p>
+
+                            <strong>
+                                Secure Account Access
+                            </strong>
+
+                            <small>
+                                Email verification and protected login.
+                            </small>
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="brand-bottom">
+
+                    ● Starting in Guwahati · Serving Assam
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- LOGIN AND REGISTRATION CARD -->
+
+        <section class="auth-card">
+
+
+            <div class="card-top">
+
+                <span class="security-chip">
+
+                    ● SECURE ACCOUNT ACCESS
+
+                </span>
+
+
+                <h2 id="panelTitle">
+
+                    Welcome Back
+
+                </h2>
+
+
+                <p id="panelDescription">
+
+                    Sign in to continue your RoomKhojo journey.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- LOGIN AND REGISTER TABS -->
+
+            <div class="auth-tabs" id="authTabs">
+
+
+                <button
+                    type="button"
+                    id="loginTab"
+                    class="active">
+
+                    🔐 Sign In
+
+                </button>
+
+
+                <button
+                    type="button"
+                    id="registerTab">
+
+                    📝 Create Account
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- STATUS MESSAGE -->
+
+            <div
+                id="message"
+                class="message"
+                role="status"
+                aria-live="polite"
+                hidden>
+            </div>
+
+
+
+            <!-- LOGIN METHOD OPTIONS -->
+
+            <div
+                class="signin-choice"
+                id="signinChoice">
+
+
+                <button
+                    type="button"
+                    class="choice active"
+                    id="emailChoice">
+
+                    ✉ Email & Password
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="choice"
+                    id="phoneChoice">
+
+                    📱 Mobile OTP
+
+                    <small>
+                        Coming Soon
+                    </small>
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- EMAIL LOGIN FORM -->
+
+            <form
+                id="loginForm"
+                class="auth-form">
+
+
+                <label for="loginEmail">
+
+                    Email Address
+
+                </label>
+
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="Enter your email address"
+                    autocomplete="email"
+                    maxlength="254"
+                    required
+                >
+
+
+
+                <div class="label-row">
+
+
+                    <label for="loginPassword">
+
+                        Password
+
+                    </label>
+
+
+                    <button
+                        type="button"
+                        class="plain-link"
+                        id="forgotLink">
+
+                        Forgot Password?
+
+                    </button>
+
+
+                </div>
+
+
+
+                <div class="password-field">
+
+
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+
+                    <button
+                        type="button"
+                        class="toggle-pass"
+                        data-target="loginPassword">
+
+                        Show
+
+                    </button>
+
+
+                </div>
+
+
+
+                <!-- CAPTCHA SECTION -->
+
+                <div
+                    id="captchaLogin"
+                    class="captcha-slot"
+                    hidden>
+                </div>
+
+
+
+                <!-- FAILED LOGIN WARNING -->
+
+                <p
+                    id="securityNotice"
+                    class="field-hint warning-note"
+                    hidden>
+
+                    ⚠️ Multiple unsuccessful login attempts detected.
+
+                    Additional security verification may be required.
+
+                </p>
+
+
+
+                <button
+                    type="submit"
+                    class="primary-button">
+
+                    Secure Sign In →
+
+                </button>
+
+
+
+                <p class="support-text">
+
+                    Your email must be verified before
+                    accessing your account.
+
+                </p>
+
+
+            </form>
+
+
+
+            <!-- MOBILE NUMBER LOGIN -->
+
+            <form
+                id="phoneForm"
+                class="auth-form"
+                hidden>
+
+
+                <h3>
+
+                    📱 Mobile OTP Login
+
+                </h3>
+
+
+                <p class="field-hint">
+
+                    Mobile OTP login will be activated
+                    after SMS provider and security
+                    limits are configured.
+
+                </p>
+
+
+
+                <label for="otpPhone">
+
+                    Mobile Number (+91)
+
+                </label>
+
+
+                <input
+                    type="tel"
+                    id="otpPhone"
+                    placeholder="Enter 10-digit mobile number"
+                    inputmode="numeric"
+                    autocomplete="tel-national"
+                    pattern="[6-9][0-9]{9}"
+                    maxlength="10"
+                    required
+                >
+
+
+
+                <div
+                    id="captchaPhone"
+                    class="captcha-slot"
+                    hidden>
+                </div>
+
+
+
+                <button
+                    type="submit"
+                    class="primary-button">
+
+                    Send Login OTP →
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- VERIFY MOBILE OTP -->
+
+            <form
+                id="otpForm"
+                class="auth-form"
+                hidden>
+
+
+                <h3>
+
+                    🔐 Verify Mobile Number
+
+                </h3>
+
+
+                <p class="field-hint">
+
+                    Enter the OTP sent to your
+                    registered mobile number.
+
+                    Never share your OTP.
+
+                </p>
+
+
+
+                <label for="otpCode">
+
+                    Enter OTP
+
+                </label>
+
+
+                <input
+                    type="text"
+                    id="otpCode"
+                    placeholder="Enter verification code"
+                    inputmode="numeric"
+                    autocomplete="one-time-code"
+                    pattern="[0-9]{6,8}"
+                    maxlength="8"
+                    required
+                >
+
+
+
+                <button
+                    type="submit"
+                    class="primary-button">
+
+                    Verify & Sign In →
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    id="otpBack"
+                    class="back-button">
+
+                    ← Change Mobile Number
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- REGISTRATION FORM -->
+
+            <form
+                id="registerForm"
+                class="auth-form"
+                hidden>
+
+
+                <label for="fullName">
+
+                    Full Name
+
+                </label>
+
+
+                <input
+                    type="text"
+                    id="fullName"
+                    placeholder="Enter your full name"
+                    autocomplete="name"
+                    minlength="2"
+                    maxlength="80"
+                    required
+                >
+
+
+
+                <label for="registerEmail">
+
+                    Email Address
+
+                </label>
+
+
+                <input
+                    type="email"
+                    id="registerEmail"
+                    placeholder="Enter your email"
+                    autocomplete="email"
+                    maxlength="254"
+                    required
+                >
+
+
+
+                <label for="registerPhone">
+
+                    Mobile Number
+
+                </label>
+
+
+                <input
+                    type="tel"
+                    id="registerPhone"
+                    placeholder="Enter 10-digit mobile number"
+                    autocomplete="tel-national"
+                    inputmode="numeric"
+                    pattern="[6-9][0-9]{9}"
+                    maxlength="10"
+                    required
+                >
+
+
+
+                <!-- ACCOUNT TYPE -->
+
+                <label for="accountType">
+
+                    Register As
+
+                </label>
+
+
+                <select
+                    id="accountType"
+                    required>
+
+
+                    <option value="">
+
+                        Select Account Type
+
+                    </option>
+
+
+                    <option value="tenant">
+
+                        🧑 Tenant — Find Rooms
+
+                    </option>
+
+
+                    <option value="owner">
+
+                        🏠 Property Owner — List Properties
+
+                    </option>
+
+
+                </select>
+
+
+
+                <!-- CREATE PASSWORD -->
+
+                <label for="registerPassword">
+
+                    Create Password
+
+                </label>
+
+
+
+                <div class="password-field">
+
+
+                    <input
+                        type="password"
+                        id="registerPassword"
+                        placeholder="Create a strong password"
+                        autocomplete="new-password"
+                        minlength="10"
+                        maxlength="128"
+                        required
+                    >
+
+
+                    <button
+                        type="button"
+                        class="toggle-pass"
+                        data-target="registerPassword">
+
+                        Show
+
+                    </button>
+
+
+                </div>
+
+
+
+                <!-- PASSWORD STRENGTH -->
+
+                <div class="strength-row">
+
+
+                    <div class="strength-track">
+
+                        <span id="strengthBar"></span>
+
+                    </div>
+
+
+                    <span id="strengthText">
+
+                        Not Entered
+
+                    </span>
+
+
+                </div>
+
+
+
+                <p class="field-hint">
+
+                    Minimum 10 characters.
+
+                    Include uppercase, lowercase,
+                    numbers and symbols.
+
+                </p>
+
+
+
+                <!-- CONFIRM PASSWORD -->
+
+                <label for="confirmPassword">
+
+                    Confirm Password
+
+                </label>
+
+
+
+                <div class="password-field">
+
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Confirm your password"
+                        autocomplete="new-password"
+                        minlength="10"
+                        maxlength="128"
+                        required
+                    >
+
+
+                    <button
+                        type="button"
+                        class="toggle-pass"
+                        data-target="confirmPassword">
+
+                        Show
+
+                    </button>
+
+
+                </div>
+
+
+
+                <!-- REGISTRATION SECURITY NOTICE -->
+
+                <div class="auth-note">
+
+                    🔐 <strong>Secure Registration</strong>
+
+                    <br><br>
+
+                    Your email must be verified
+                    before you can sign in.
+
+                    <br><br>
+
+                    Account permissions will be
+                    assigned securely after registration.
+
+                </div>
+
+
+
+                <!-- REGISTRATION CAPTCHA -->
+
+                <div
+                    id="captchaRegister"
+                    class="captcha-slot"
+                    hidden>
+                </div>
+
+
+
+                <button
+                    type="submit"
+                    class="primary-button">
+
+                    Create My Account →
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- FORGOT PASSWORD FORM -->
+
+            <form
+                id="forgotForm"
+                class="auth-form"
+                hidden>
+
+
+                <h3>
+
+                    🔑 Reset Your Password
+
+                </h3>
+
+
+                <p class="field-hint">
+
+                    Enter your registered email address.
+
+                    We will request a password
+                    recovery link.
+
+                </p>
+
+
+
+                <label for="resetEmail">
+
+                    Email Address
+
+                </label>
+
+
+                <input
+                    type="email"
+                    id="resetEmail"
+                    placeholder="Enter your email"
+                    autocomplete="email"
+                    required
+                >
+
+
+
+                <div
+                    id="captchaForgot"
+                    class="captcha-slot"
+                    hidden>
+                </div>
+
+
+
+                <button
+                    type="submit"
+                    class="primary-button">
+
+                    Send Recovery Link →
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="back-button"
+                    data-view="login">
+
+                    ← Back to Login
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- NEW PASSWORD FORM -->
+
+            <form
+                id="newPasswordForm"
+                class="auth-form"
+                hidden>
+
+
+                <h3>
+
+                    🔒 Create New Password
+
+                </h3>
+
+
+
+                <label for="newPassword">
+
+                    New Password
+
+                </label>
+
+
+
+                <div class="password-field">
+
+
+                    <input
+                        type="password"
+                        id="newPassword"
+                        placeholder="Enter new password"
+                        autocomplete="new-password"
+                        minlength="10"
+                        maxlength="128"
+                        required
+                    >
+
+
+                    <button
+                        type="button"
+                        class="toggle-pass"
+                        data-target="newPassword">
+
+                        Show
+
+                    </button>
+
+
+                </div>
+
+
+
+                <label for="newPasswordConfirm">
+
+                    Confirm New Password
+
+                </label>
+
+
+                <input
+                    type="password"
+                    id="newPasswordConfirm"
+                    placeholder="Confirm new password"
+                    autocomplete="new-password"
+                    minlength="10"
+                    maxlength="128"
+                    required
+                >
+
+
+
+                <button
+                    type="submit"
+                    class="primary-button">
+
+                    Update Password →
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- SUCCESSFUL LOGIN PANEL -->
+
+            <section
+                id="signedInPanel"
+                class="signed-panel"
+                hidden>
+
+
+                <div class="signed-icon">
+
+                    ✓
+
+                </div>
+
+
+
+                <h3>
+
+                    Successfully Signed In!
+
+                </h3>
+
+
+
+                <p id="signedInEmail"></p>
+
+
+
+                <p class="field-hint">
+
+                    Your account is authenticated.
+
+                    Your personal dashboard and
+                    database permissions will be
+                    configured separately.
+
+                </p>
+
+
+
+                <a
+                    href="index.html"
+                    class="primary-button as-link">
+
+                    Explore RoomKhojo →
+
+                </a>
+
+
+
+                <button
+                    type="button"
+                    id="signOutButton"
+                    class="back-button">
+
+                    Sign Out Securely
+
+                </button>
+
+
+            </section>
+
+
+
+            <!-- ADMIN AND EMPLOYEE LOGIN LINK -->
+
+            <div class="staff-access">
+
+
+                <span>
+
+                    Are you part of the RoomKhojo team?
+
+                </span>
+
+
+
+                <a href="staff-login.html">
+
+                    🔐 Admin & Employee Secure Login →
+
+         

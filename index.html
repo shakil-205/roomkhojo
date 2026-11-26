@@ -1,213 +1,496 @@
 <!DOCTYPE html>
-< lang="en">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-    content="width=device-width, initial-scale=1.0">
-
-    <title>RoomKhojo - Find Your Home</title>
-<link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Find rooms, PG accommodation, flats and houses for rent across Assam with RoomKhojo.">
+  <title>RoomKhojo - Find Your Room. Find Your Home.</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<footer>
-    <h3>🏠 RoomKhojo</h3>
-    <p>Find Your Room. Find Your Home.</p>
-    <p>Serving All Districts of Assam</p>
-    <p>© 2026 RoomKhojo. All Rights Reserved.</p>
-</footer>
+
 <body>
 
-    <h1>🏠 Welcome to RoomKhojo</h1>
+<header id="home" class="site-header">
+  <div class="brand">
+    <h1>🏠 RoomKhojo</h1>
+    <p>Find Your Room. Find Your Home.</p>
+  </div>
 
-    <h2>Find Your Room. Find Your Home.</h2>
+  <nav aria-label="Main navigation">
+    <a href="#home">Home</a>
+    <a href="#find-rooms">Find Rooms</a>
+    <a href="#properties">Explore</a>
+    <a href="#list-property">List Property</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero">
+    <span class="badge">🏡 Serving All Districts of Assam</span>
+
+    <h2>Find Your Perfect Home</h2>
 
     <p>
-        Discover affordable rooms, PGs
-        and flats across Assam.
+      Discover affordable rooms, PG accommodation,
+      flats and independent houses across Assam.
     </p>
 
-    <h3>Our Services</h3>
+    <p class="hero-highlight">
+      📍 Starting from Guwahati
+    </p>
 
-    <p>Single Rooms</p>
-    <p>PG Accommodation</p>
-    <p>1 BHK Flats</p>
-    <p>2 BHK Flats</p>
-    <p>Independent Houses</p>
+    <a href="#find-rooms" class="primary-link">
+      🔍 Find a Room
+    </a>
+  </section>
 
-    <h3>Starting from Guwahati</h3>
+  <section class="services" aria-labelledby="services-title">
+    <h2 id="services-title">Our Services</h2>
 
-<nav>
-    <a href="#">Home</a>
-    <a href="#">Find Rooms</a>
-    <a href="#">PG</a>
-    <a href="#">List Property</a>
-    <a href="#">Contact</a>
+    <div class="service-grid">
+      <div class="service-card">🛏️ Single Rooms</div>
+      <div class="service-card">🏠 Double Rooms</div>
+      <div class="service-card">🏢 PG Accommodation</div>
+      <div class="service-card">🏡 1 RK & 2 RK</div>
+      <div class="service-card">🏘️ 1 BHK & 2 BHK</div>
+      <div class="service-card">🏡 Independent Houses</div>
+    </div>
+  </section>
 
-  <section class="search-box">
+  <section id="find-rooms" class="search-box">
+    <h2>🔍 Find Your Perfect Room</h2>
+    <p class="section-intro">
+      Choose your preferences to explore accommodation.
+    </p>
 
-    <h2>Find Your Perfect Room</h2>
+    <label for="searchLocation">Location</label>
+    <input
+      type="text"
+      id="searchLocation"
+      placeholder="Enter location (e.g. Bhangagarh, Guwahati)"
+      autocomplete="address-level2"
+    >
 
-    <input type="text" placeholder="Enter location (e.g. Guwahati)">
+    <label for="accommodationType">Accommodation Type</label>
+    <select id="accommodationType">
+      <option value="">All Accommodation Types</option>
 
-    <select>
-    <option value="">Select Accommodation Type</option>
+      <optgroup label="Rooms">
+        <option value="Single Room">Single Room</option>
+        <option value="Double Room">Double Room</option>
+      </optgroup>
 
-    <optgroup label="Rooms">
-        <option>Single Room</option>
-        <option>Double Room</option>
-    </optgroup>
+      <optgroup label="Room Types">
+        <option value="1 RK">1 RK</option>
+        <option value="2 RK">2 RK</option>
+        <option value="1 BHK">1 BHK</option>
+        <option value="2 BHK">2 BHK</option>
+        <option value="3 BHK">3 BHK</option>
+      </optgroup>
 
-    <optgroup label="Room Types">
-        <option>1 RK</option>
-        <option>2 RK</option>
-        <option>1 BHK</option>
-        <option>2 BHK</option>
-        <option>3 BHK</option>
-    </optgroup>
+      <optgroup label="PG Accommodation">
+        <option value="PG - Single Occupancy">PG - Single Occupancy</option>
+        <option value="PG - Double Sharing">PG - Double Sharing</option>
+        <option value="PG - Triple Sharing">PG - Triple Sharing</option>
+      </optgroup>
 
-    <optgroup label="PG Accommodation">
-        <option>PG - Single Occupancy</option>
-        <option>PG - Double Sharing</option>
-        <option>PG - Triple Sharing</option>
-    </optgroup>
-
-    <optgroup label="Other">
-        <option>Independent House</option>
-    </optgroup>
-        
+      <optgroup label="Other">
+        <option value="Independent House">Independent House</option>
+      </optgroup>
     </select>
+
+    <label for="budget">Monthly Budget</label>
     <select id="budget">
-    <option value="">Select Monthly Budget</option>
-    <option value="3000">Below ₹3,000</option>
-    <option value="5000">₹3,000 – ₹5,000</option>
-    <option value="8000">₹5,000 – ₹8,000</option>
-    <option value="12000">₹8,000 – ₹12,000</option>
-    <option value="15000">₹12,000 – ₹15,000</option>
-    <option value="20000">Above ₹15,000</option>
+      <option value="">Any Budget</option>
+      <option value="below3000">Below ₹3,000</option>
+      <option value="3000-5000">₹3,000 – ₹5,000</option>
+      <option value="5000-8000">₹5,000 – ₹8,000</option>
+      <option value="8000-12000">₹8,000 – ₹12,000</option>
+      <option value="12000-15000">₹12,000 – ₹15,000</option>
+      <option value="above15000">Above ₹15,000</option>
     </select>
+
+    <label for="gender">Gender Preference</label>
     <select id="gender">
-    <option value="">Select Gender Preference</option>
-    <option value="male">Male</option>
-    <option value="female">Female</option>
-    <option value="any">Any Gender</option>
-    <option value="family">Family</option>
+      <option value="">Any Preference</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="any">Any Gender</option>
+      <option value="family">Family</option>
     </select>
+
+    <label for="furnishing">Furnishing Type</label>
     <select id="furnishing">
-    <option value="">Select Furnishing Type</option>
-    <option value="fully-furnished">Fully Furnished</option>
-    <option value="semi-furnished">Semi Furnished</option>
-    <option value="unfurnished">Unfurnished</option>
+      <option value="">Any Furnishing</option>
+      <option value="fully-furnished">Fully Furnished</option>
+      <option value="semi-furnished">Semi Furnished</option>
+      <option value="unfurnished">Unfurnished</option>
     </select>
 
-    <button onclick="searchRooms()">Search Rooms</button>
-<div id="searchResults">
-    <button onclick="clearSearch()">Clear Search</button>
-</div>
-  </section>
-  <section class="properties">
-
-    <h2>Explore Properties</h2>
-
-      <div class="property-card">
-
-    <h3>🏠 Demo Room in Guwahati</h3>
-
-    <p>📍 Location: Bhangagarh, Guwahati</p>
-
-    <p>🏷️ Type: Single Room</p>
-
-    <p>💰 Rent: ₹4,000/month</p>
-
-    <p>🛏️ Furnishing: Semi-Furnished</p>
-
-    <p>Availability: Demo Listing Only</p>
-
-    <button onclick="alert('Demo property: Enquiry feature coming soon!')">
-        Contact Owner
+    <button type="button" onclick="searchRooms()">
+      🔍 Search Rooms
     </button>
 
-      </div>
-        <h3>🏠 Single Rooms</h3>
-        <p>Affordable rooms for students and working professionals.</p>
-    </>
-
-    <div class="property-card">
-        <h3>🏢 PG Accommodation</h3>
-        <p>Comfortable PG accommodation across Assam.</p>
-    </div>
-
-    <div class="property-card">
-        <h3>🏡 1 BHK & 2 BHK Flats</h3>
-        <p>Find a flat that suits your budget.</p>
-    </div>
-
-    <div class="property-card">
-        <h3>🏘️ Independent Houses</h3>
-        <p>Explore houses for rent across Assam.</p>
-    </div>
-
+    <div id="searchResults" aria-live="polite"></div>
   </section>
-  <section class="owner-section">
 
-    <h2>Are You a Property Owner?</h2>
+  <!-- PREMIUM PROPERTY LISTINGS -->
 
-    <p>List your room, PG or flat on RoomKhojo and connect with potential tenants.</p>
+<section id="properties" class="properties">
 
-    <button onclick="alert('Thank you for your interest! Contact RoomKhojo to list your property.')">
-        List Your Property
-    </button>
+    <h2>🏘️ Explore Properties</h2>
 
-  </section>
-  <section class="listing-form">
+    <p class="section-intro">
+        Discover your next home with RoomKhojo.
+        Explore rooms, PGs, flats and houses across Assam.
+    </p>
 
-    <h2>List Your Property</h2>
-    <label>Upload Property Photos</label>
+    <div class="property-grid">
 
-<input
-    type="file"
-    id="propertyPhotos"
-    accept="image/*"
-    multiple
+        <!-- FEATURED DEMO PROPERTY -->
+
+        <article class="property-card featured-property">
+
+            <!-- ROOMKHOJO PREMIUM PHOTO GALLERY -->
+
+<div class="property-gallery">
+
+    <span class="gallery-badge">
+        DEMO PROPERTY
+    </span>
+
+    <div class="gallery-track" id="demoGallery">
+
+        <!-- PHOTO 1 -->
+        <div class="gallery-slide">
+            <img
+                src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=900&q=75"
+                alt="Example furnished room interior"
+                loading="lazy"
+            >
+        </div>
+
+        <!-- PHOTO 2 -->
+        <div class="gallery-slide">
+            <img
+                src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=900&q=75"
+                alt="Example apartment interior"
+                loading="lazy"
+            >
+        </div>
+
+        <!-- PHOTO 3 -->
+        <div class="gallery-slide">
+            <img
+                src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=75"
+                alt="Example bedroom interior"
+                loading="lazy"
+            >
+        </div>
+
+    </div> 
+  <!-- PREMIUM PHOTO CONTROLS -->
+
+<button
+    type="button"
+    class="gallery-arrow gallery-prev"
+    onclick="slideGallery(-1)"
+    aria-label="Previous property photo"
 >
-
-<div id="imagePreview"></div>
-
-    <p>Find tenants for your property through RoomKhojo.</p>
-
-    <input type="text" placeholder="Owner Name">
-
-    <input type="tel" placeholder="Mobile Number">
-
-    <input type="text" placeholder="District">
-
-    <h3>📍 Property Location</h3>
-
-<input
-    type="text"
-    id="propertyLocation"
-    placeholder="Enter or correct property location"
->
-
-<button type="button" onclick="getOwnerLocation()">
-    📍 Detect My Current Location
+    ❮
 </button>
 
-<p id="locationStatus">
-    You can edit your location manually if GPS is inaccurate.
-</p>
+<button
+    type="button"
+    class="gallery-arrow gallery-next"
+    onclick="slideGallery(1)"
+    aria-label="Next property photo"
+>
+    ❯
+</button>
 
-<label>
-    <input type="checkbox" id="agentHelp">
-    I need help from a RoomKhojo agent to add my property location.
-</label>
+<div class="gallery-counter" id="galleryCounter">
+    1 / 3
+</div>
 
-<textarea
-    id="locationNote"
-    placeholder="Additional location details (landmark, road, nearby place)"
-></textarea>
+    <div class="gallery-hint">
+        👆 Swipe to explore photos
+    </div>
 
-    <select>
+    <div class="gallery-dots">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+</div>
+
+            <div class="property-content">
+
+                <div class="property-top">
+
+                    <span class="property-type">
+                        🛏️ Single Room
+                    </span>
+
+                    <span class="availability-badge">
+                        DEMO ONLY
+                    </span>
+
+                </div>
+
+                <h3>Comfortable Single Room</h3>
+
+                <p class="property-location">
+                    📍 Bhangagarh, Guwahati, Assam
+                </p>
+
+                <div class="property-price">
+                    ₹4,000
+                    <span>/ month</span>
+                </div>
+
+                <div class="property-features">
+
+                    <span>🛏️ Single Room</span>
+
+                    <span>🪑 Semi-Furnished</span>
+
+                    <span>📍 Guwahati</span>
+
+                </div>
+
+                <p class="demo-notice">
+                    This is a demonstration listing.
+                    It is not available for booking.
+                </p>
+
+                <div class="property-actions">
+
+                    <button
+    type="button"
+    onclick="openPropertyDetails()"
+>
+    🏠 View Details
+                    </button>
+
+                    <button
+                        type="button"
+                        onclick="tryDemoDirections()"
+                        class="map-button"
+                    >
+                        🗺️ Try Navigation
+                    </button>
+
+                    <button
+                        type="button"
+                        onclick="requestPropertyVisit()"
+                        class="location-button"
+                    >
+                        🔒 Exact Property Location
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- SINGLE ROOMS -->
+
+        <article class="property-card category-card">
+
+            <div class="category-image rooms-image">
+                🛏️
+            </div>
+
+            <div class="category-content">
+
+                <h3>Single & Double Rooms</h3>
+
+                <p>
+                    Find affordable accommodation
+                    for students and working professionals.
+                </p>
+
+                <span class="category-tag">
+                    Explore Rooms →
+                </span>
+
+            </div>
+
+        </article>
+
+
+        <!-- PG ACCOMMODATION -->
+
+        <article class="property-card category-card">
+
+            <div class="category-image pg-image">
+                🏢
+            </div>
+
+            <div class="category-content">
+
+                <h3>PG Accommodation</h3>
+
+                <p>
+                    Discover single, double and
+                    triple-sharing PG accommodation.
+                </p>
+
+                <span class="category-tag">
+                    Explore PGs →
+                </span>
+
+            </div>
+
+        </article>
+
+
+        <!-- FLATS -->
+
+        <article class="property-card category-card">
+
+            <div class="category-image flats-image">
+                🏡
+            </div>
+
+            <div class="category-content">
+
+                <h3>Flats & Apartments</h3>
+
+                <p>
+                    Explore 1 RK, 2 RK, 1 BHK,
+                    2 BHK and 3 BHK accommodation.
+                </p>
+
+                <span class="category-tag">
+                    Explore Flats →
+                </span>
+
+            </div>
+
+        </article>
+
+
+        <!-- INDEPENDENT HOUSES -->
+
+        <article class="property-card category-card">
+
+            <div class="category-image house-image">
+                🏘️
+            </div>
+
+            <div class="category-content">
+
+                <h3>Independent Houses</h3>
+
+                <p>
+                    Find independent houses
+                    for rent across Assam.
+                </p>
+
+                <span class="category-tag">
+                    Explore Houses →
+                </span>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+  <section class="owner-section">
+    <h2>🏠 Are You a Property Owner?</h2>
+
+    <p>
+      List your room, PG, flat or house on RoomKhojo
+      and connect with potential tenants.
+    </p>
+
+    <a href="#list-property" class="primary-link">
+      List Your Property
+    </a>
+  </section>
+
+  <section id="list-property" class="listing-form">
+    <h2>🏡 List Your Property</h2>
+
+    <p class="section-intro">
+      Enter your property details below.
+    </p>
+
+    <form id="propertyForm">
+
+      <label for="ownerName">Owner Name</label>
+      <input
+        type="text"
+        id="ownerName"
+        placeholder="Enter your full name"
+        required
+      >
+
+      <label for="ownerPhone">Mobile Number</label>
+      <input
+        type="tel"
+        id="ownerPhone"
+        placeholder="Enter 10-digit mobile number"
+        inputmode="numeric"
+        pattern="[0-9]{10}"
+        maxlength="10"
+        required
+      >
+
+      <label for="ownerDistrict">District</label>
+      <input
+        type="text"
+        id="ownerDistrict"
+        placeholder="Enter district"
+        required
+      >
+
+      <h3>📍 Property Location</h3>
+
+      <label for="propertyLocation">Full Property Address</label>
+      <input
+        type="text"
+        id="propertyLocation"
+        placeholder="Enter or correct property address"
+        required
+      >
+
+      <button
+        type="button"
+        class="secondary-button"
+        onclick="getOwnerLocation()"
+      >
+        📍 Detect My Current Location
+      </button>
+
+      <p id="locationStatus" class="help-text">
+        You can edit the address manually if GPS is inaccurate.
+      </p>
+
+      <label class="checkbox-label">
+        <input type="checkbox" id="agentHelp">
+        I need help from a RoomKhojo agent to add my property location.
+      </label>
+
+      <label for="locationNote">Landmark / Additional Location Details</label>
+      <textarea
+        id="locationNote"
+        placeholder="Nearby road, landmark or building"
+        rows="3"
+      ></textarea>
+
+      <label for="ownerPropertyType">Property Type</label>
+      <select id="ownerPropertyType" required>
         <option value="">Select Property Type</option>
         <option>Single Room</option>
         <option>Double Room</option>
@@ -215,200 +498,685 @@
         <option>2 RK</option>
         <option>1 BHK</option>
         <option>2 BHK</option>
+        <option>3 BHK</option>
         <option>PG - Single Occupancy</option>
         <option>PG - Double Sharing</option>
         <option>PG - Triple Sharing</option>
         <option>Independent House</option>
+      </select>
+
+      <label for="monthlyRent">Monthly Rent (₹)</label>
+      <input
+        type="number"
+        id="monthlyRent"
+        placeholder="Enter monthly rent"
+        min="1"
+        required
+      >
+<!-- ROOMKHOJO ROOM AVAILABILITY -->
+
+<label for="roomAvailability">
+    🏠 Room Availability
+</label>
+
+<select id="roomAvailability" name="roomAvailability" required>
+
+    <option value="">
+        Select Room Availability
+    </option>
+
+    <option value="available">
+        🟢 Available for Rent
+    </option>
+
+    <option value="occupied">
+        🔴 Currently Occupied
+    </option>
+
+    <option value="reserved">
+        🟡 Reserved
+    </option>
+
+    <option value="maintenance">
+        🛠️ Under Maintenance
+    </option>
+
+</select>
+      <!-- ROOMKHOJO PROPERTY FACILITIES -->
+
+<fieldset class="amenities-section">
+
+    <legend>🏡 Property Facilities & Amenities</legend>
+
+    <p>Select all facilities available at your property.</p>
+
+    <div class="amenities-grid">
+
+        <label class="amenity-option">
+            <input type="checkbox" name="amenities" value="wifi">
+            📶 Wi-Fi
+        </label>
+
+        <label class="amenity-option">
+            <input type="checkbox" name="amenities" value="attached_bathroom">
+            🚿 Attached Bathroom
+        </label>
+
+        <label class="amenity-option">
+            <input type="checkbox" name="amenities" value="parking">
+            🚗 Parking
+        </label>
+
+        <label class="amenity-option">
+            <input type="checkbox" name="amenities" value="electricity">
+            ⚡ Electricity
+        </label>
+
+        <label class="amenity-option">
+            <input type="checkbox" name="amenities" value="water">
+            💧 Water Supply
+        </label>
+
+        <label class="amenity-option">
+            <input type="checkbox" name="amenities" value="kitchen">
+            🍳 Kitchen
+        </label>
+
+        <label class="amenity-option">
+            <input type="checkbox" name="amenities" value="ac">
+            ❄️ Air Conditioning
+        </label>
+
+        <label class="amenity-option">
+            <input type="checkbox" name="amenities" value="balcony">
+            🌿 Balcony
+        </label>
+
+        <label class="amenity-option">
+            <input type="checkbox" name="amenities" value="cctv">
+            📹 CCTV Security
+        </label>
+
+        <label class="amenity-option">
+            <input type="checkbox" name="amenities" value="power_backup">
+            🔋 Power Backup
+        </label>
+
+    </div>
+
+</fieldset>
+      <!-- ROOMKHOJO PROPERTY RULES -->
+
+<fieldset class="amenities-section rules-section">
+
+    <legend>📋 Property Rules & Conditions</legend>
+
+    <p>
+        Specify the rules tenants must follow
+        while staying at your property.
+    </p>
+
+    <label for="smokingPolicy">
+        🚭 Smoking Policy
+    </label>
+
+    <select id="smokingPolicy" name="smokingPolicy">
+        <option value="">Select Smoking Policy</option>
+        <option value="not_allowed">Smoking Not Allowed</option>
+        <option value="allowed">Smoking Allowed</option>
+        <option value="designated_area">
+            Allowed in Designated Areas
+        </option>
     </select>
 
-    <input type="number" placeholder="Monthly Rent (₹)">
+    <label for="petPolicy">
+        🐶 Pet Policy
+    </label>
 
-    <textarea placeholder="Describe your property"></textarea>
+    <select id="petPolicy" name="petPolicy">
+        <option value="">Select Pet Policy</option>
+        <option value="allowed">Pets Allowed</option>
+        <option value="not_allowed">Pets Not Allowed</option>
+        <option value="approval_required">
+            Owner Approval Required
+        </option>
+    </select>
 
-    <button type="button" onclick="alert('Property submission feature coming soon!')">
+    <label for="visitorPolicy">
+        👥 Visitor Policy
+    </label>
+
+    <select id="visitorPolicy" name="visitorPolicy">
+        <option value="">Select Visitor Policy</option>
+        <option value="allowed">Visitors Allowed</option>
+        <option value="restricted">Visitors Restricted</option>
+        <option value="approval_required">
+            Prior Permission Required
+        </option>
+    </select>
+
+    <label for="minimumStay">
+        📅 Minimum Rental Duration
+    </label>
+
+    <select id="minimumStay" name="minimumStay">
+        <option value="">Select Minimum Stay</option>
+        <option value="1">1 Month</option>
+        <option value="3">3 Months</option>
+        <option value="6">6 Months</option>
+        <option value="12">12 Months</option>
+        <option value="flexible">Flexible</option>
+    </select>
+
+    <label for="propertyRules">
+        📝 Additional House Rules
+    </label>
+
+    <textarea
+        id="propertyRules"
+        name="propertyRules"
+        rows="4"
+        placeholder="Example: Quiet hours after 10 PM, gate closing time, cleaning rules, etc."
+    ></textarea>
+
+</fieldset>
+      <label for="securityDeposit">Security Deposit (₹)</label>
+      <input
+        type="number"
+        id="securityDeposit"
+        placeholder="Enter security deposit"
+        min="0"
+        value="0"
+      >
+
+      <label for="propertyDescription">Property Description</label>
+      <textarea
+        id="propertyDescription"
+        placeholder="Describe your property, facilities and nearby landmarks"
+        rows="4"
+      ></textarea>
+
+      <h3>📸 Property Photos</h3>
+
+      <p class="help-text">
+        Select up to 5 photos. Images are previewed on your device only.
+      </p>
+
+      <input
+        type="file"
+        id="propertyPhotos"
+        accept="image/*"
+        multiple
+      >
+
+      <div id="imagePreview" class="image-preview"></div>
+
+      <button type="submit">
         Submit Property
-    </button>
+      </button>
 
+      <p id="formStatus" class="help-text" aria-live="polite"></p>
+
+    </form>
   </section>
-  <section class="contact-section">
 
-    <h2>Contact RoomKhojo</h2>
+  <section id="contact" class="contact-section">
+    <h2>📞 Contact RoomKhojo</h2>
 
     <p>Have questions? We are here to help.</p>
 
-    <p>📍 Serving all districts of Assam</p>
+    <p>📍 Serving All Districts of Assam</p>
 
-    <p>📞 Contact us for room enquiries and property listings.</p>
+    <p>
+      For room enquiries and property listings,
+      contact information will be announced soon.
+    </p>
 
-    <button onclick="alert('Contact details coming soon!')">
-        Contact Us
+    <button type="button" onclick="showContactMessage()">
+      Contact Us
+    </button>
+  </section>
+
+</main>
+
+<footer>
+  <h3>🏠 RoomKhojo</h3>
+  <p>Find Your Room. Find Your Home.</p>
+  <p>Serving All Districts of Assam</p>
+  <p>© 2026 RoomKhojo. All Rights Reserved.</p>
+</footer> 
+  <!-- ROOMKHOJO PREMIUM PROPERTY DETAILS -->
+
+<dialog id="propertyDetailsDialog" class="details-dialog">
+
+  <div class="details-container">
+
+    <div class="details-header">
+      <h2>🏠 Property Details</h2>
+
+      <button type="button"
+              onclick="closePropertyDetails()">
+        ✕
+      </button>
+    </div>
+
+    <span class="demo-badge">DEMO PROPERTY</span>
+
+    <h3>Comfortable Single Room</h3>
+
+    <p>📍 Bhangagarh, Guwahati, Assam</p>
+
+    <h2 class="details-price">
+      ₹4,000 <small>/ month</small>
+    </h2>
+
+    <h3>🏡 Accommodation Information</h3>
+
+    <div class="details-grid">
+      <p>🛏️ Single Room</p>
+      <p>🪑 Semi-Furnished</p>
+      <p>📍 Guwahati</p>
+      <p>🔒 Exact Location Protected</p>
+    </div>
+
+    <h3>💰 Additional Charges</h3>
+
+    <p>Security Deposit: Not specified</p>
+
+    <h3>🛜 Property Facilities</h3>
+
+    <p>
+      Wi-Fi, parking, bathroom and other facilities
+      will be displayed when confirmed by the owner.
+    </p>
+
+    <h3>📋 Availability</h3>
+
+    <p>This is a demonstration property, not available for booking.</p>
+
+    <button type="button"
+            class="details-close"
+            onclick="closePropertyDetails()">
+      Close Details
     </button>
 
-  </section>
-  <footer>
-    <h3>🏠 RoomKhojo</h3>
-    <p>Find Your Room. Find Your Home.</p>
-    <p>Serving All Districts of Assam</p>
-    <p>© 2026 RoomKhojo. All Rights Reserved.</p>
-</footer>
+  </div>
+
+</dialog>
 
 <script>
+"use strict";
+
+/* ROOM SEARCH */
 
 function searchRooms() {
+  const location = document.getElementById("searchLocation").value.trim();
+  const type = document.getElementById("accommodationType").value;
+  const budgetSelect = document.getElementById("budget");
+  const genderSelect = document.getElementById("gender");
+  const furnishingSelect = document.getElementById("furnishing");
 
-    let location = document.querySelector('.search-box input').value;
-    let type = document.querySelector('.search-box select').value;
-    let budget = document.getElementById('budget').value;
-    let gender = document.getElementById('gender').value;
-    let furnishing = document.getElementById('furnishing').value;
+  if (!location) {
+    alert("Please enter a location!");
+    document.getElementById("searchLocation").focus();
+    return;
+  }
 
-    if (location.trim() === "") {
-        alert("Please enter a location!");
-        return;
-    }
+  const results = document.getElementById("searchResults");
+  results.replaceChildren();
+  results.style.display = "block";
 
-    document.getElementById("searchResults").style.display = "block";
+  const heading = document.createElement("h3");
+  heading.textContent = "🔍 Your Search Preferences";
+  results.appendChild(heading);
 
-document.getElementById("searchResults").innerHTML =
-        "<h3>Search Request Received!</h3>" +
-        "<p>Location: " + location + "</p>" +
-        "<p>Property Type: " + (type || "Any") + "</p>" +
-        "<p>Budget: " + (budget || "Any") + "</p>" +
-        "<p>Gender: " + (gender || "Any") + "</p>" +
-        "<p>Furnishing: " + (furnishing || "Any") + "</p>" +
-        "<p>RoomKhojo is preparing your search.</p>";
+  const details = [
+    ["Location", location],
+    ["Accommodation", type || "Any"],
+    ["Budget", budgetSelect.selectedOptions[0].textContent],
+    ["Gender", genderSelect.selectedOptions[0].textContent],
+    ["Furnishing", furnishingSelect.selectedOptions[0].textContent]
+  ];
+
+  details.forEach(function(item) {
+    const paragraph = document.createElement("p");
+    paragraph.textContent = item[0] + ": " + item[1];
+    results.appendChild(paragraph);
+  });
+
+  const notice = document.createElement("p");
+  notice.className = "search-notice";
+  notice.textContent =
+    "This is a search preview. Live property results will be available after database integration.";
+  results.appendChild(notice);
+
+  const clearButton = document.createElement("button");
+  clearButton.type = "button";
+  clearButton.textContent = "Clear Search";
+  clearButton.className = "secondary-button";
+  clearButton.addEventListener("click", clearSearch);
+  results.appendChild(clearButton);
+
+  results.scrollIntoView({
+    behavior: "smooth",
+    block: "nearest"
+  });
 }
-  function clearSearch() {
-    document.getElementById("searchResults").innerHTML = "";
-    document.getElementById("searchResults").style.display = "none";
+
+function clearSearch() {
+  document.getElementById("searchLocation").value = "";
+  document.getElementById("accommodationType").value = "";
+  document.getElementById("budget").value = "";
+  document.getElementById("gender").value = "";
+  document.getElementById("furnishing").value = "";
+
+  const results = document.getElementById("searchResults");
+  results.replaceChildren();
+  results.style.display = "none";
 }
 
-// Photo Upload System
+/* PROPERTY PHOTO PREVIEW */
+
 let selectedPhotos = [];
 
 const photoInput = document.getElementById("propertyPhotos");
 const preview = document.getElementById("imagePreview");
 
 photoInput.addEventListener("change", function() {
+  const newFiles = Array.from(photoInput.files);
 
-    const newFiles = Array.from(photoInput.files);
-alert("Selected photos: " + newFiles.length);
-    if (selectedPhotos.length + newFiles.length > 5) {
-        alert("You can upload a maximum of 5 photos!");
+  const validFiles = newFiles.filter(function(file) {
+    return file.type.startsWith("image/");
+  });
 
-        const dataTransfer = new DataTransfer();
+  if (validFiles.length !== newFiles.length) {
+    alert("Please select image files only.");
+  }
 
-        selectedPhotos.forEach(function(photo) {
-            dataTransfer.items.add(photo);
-        });
+  if (selectedPhotos.length + validFiles.length > 5) {
+    alert("You can select a maximum of 5 photos.");
+    syncPhotoInput();
+    return;
+  }
 
-        photoInput.files = dataTransfer.files;
-        return;
-    }
-
-    selectedPhotos = selectedPhotos.concat(newFiles);
-
-    const dataTransfer = new DataTransfer();
-
-    selectedPhotos.forEach(function(photo) {
-        dataTransfer.items.add(photo);
-    });
-
-    photoInput.files = dataTransfer.files;
-
-    showPhotoPreview();
+  selectedPhotos = selectedPhotos.concat(validFiles);
+  syncPhotoInput();
+  showPhotoPreview();
 });
 
-function showPhotoPreview() {
+function syncPhotoInput() {
+  const transfer = new DataTransfer();
 
-    preview.innerHTML = "";
+  selectedPhotos.forEach(function(photo) {
+    transfer.items.add(photo);
+  });
 
-    selectedPhotos.forEach(function(file, index) {
-
-        const reader = new FileReader();
-
-        reader.onload = function(e) {
-
-            const container = document.createElement("div");
-            container.style.display = "inline-block";
-            container.style.margin = "5px";
-
-            const img = document.createElement("img");
-            img.src = e.target.result;
-            img.style.width = "100px";
-            img.style.height = "100px";
-            img.style.objectFit = "cover";
-            img.style.borderRadius = "8px";
-
-            const button = document.createElement("button");
-            button.textContent = "Remove";
-            button.type = "button";
-
-            button.onclick = function() {
-
-                selectedPhotos.splice(index, 1);
-
-                const dataTransfer = new DataTransfer();
-
-                selectedPhotos.forEach(function(photo) {
-                    dataTransfer.items.add(photo);
-                });
-
-                photoInput.files = dataTransfer.files;
-
-                showPhotoPreview();
-            };
-
-            container.appendChild(img);
-            container.appendChild(button);
-
-            preview.appendChild(container);
-        };
-
-        reader.readAsDataURL(file);
-    });
+  photoInput.files = transfer.files;
 }
-  function getOwnerLocation() {
 
-    const locationInput = document.getElementById("propertyLocation");
-    const status = document.getElementById("locationStatus");
+function showPhotoPreview() {
+  preview.replaceChildren();
 
-    if (!navigator.geolocation) {
-        status.textContent = "GPS is not supported by your browser.";
+  selectedPhotos.forEach(function(file, index) {
+    const container = document.createElement("div");
+    container.className = "preview-item";
+
+    const image = document.createElement("img");
+    const objectUrl = URL.createObjectURL(file);
+
+    image.src = objectUrl;
+    image.alt = "Selected property photo " + (index + 1);
+
+    image.addEventListener("load", function() {
+      URL.revokeObjectURL(objectUrl);
+    }, { once: true });
+
+    const removeButton = document.createElement("button");
+    removeButton.type = "button";
+    removeButton.textContent = "Remove";
+
+    removeButton.addEventListener("click", function() {
+      selectedPhotos.splice(index, 1);
+      syncPhotoInput();
+      showPhotoPreview();
+    });
+
+    container.appendChild(image);
+    container.appendChild(removeButton);
+    preview.appendChild(container);
+  });
+}
+
+/* PROPERTY LOCATION */
+
+let detectedCoordinates = null;
+
+function getOwnerLocation() {
+  const locationInput = document.getElementById("propertyLocation");
+  const status = document.getElementById("locationStatus");
+
+  if (!navigator.geolocation) {
+    status.textContent =
+      "GPS is not supported by this browser. Please enter your address manually.";
+    return;
+  }
+
+  status.textContent = "Detecting your current location...";
+
+  navigator.geolocation.getCurrentPosition(
+    function(position) {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+
+      detectedCoordinates = {
+        latitude: latitude,
+        longitude: longitude
+      };
+
+      if (!locationInput.value.trim()) {
+    locationInput.value =
+        detectedCoordinates.latitude.toFixed(6) + ", " +
+        detectedCoordinates.longitude.toFixed(6);
+      }
+      status.textContent =
+        "📍 GPS coordinates detected. Please enter or confirm the full property address manually.";
+    },
+
+    function(error) {
+      let message = "Unable to detect location.";
+
+      if (error.code === 1) {
+        message = "Location permission denied.";
+      } else if (error.code === 2) {
+        message = "Location information is unavailable.";
+      } else if (error.code === 3) {
+        message = "Location detection timed out.";
+      }
+
+      status.textContent =
+        message + " Please enter the property address manually.";
+    },
+
+    {
+      enableHighAccuracy: true,
+      timeout: 15000,
+      maximumAge: 0
+    }
+  );
+}
+
+/* PROPERTY FORM */
+
+document.getElementById("propertyForm").addEventListener(
+  "submit",
+  function(event) {
+    event.preventDefault();
+
+    const status = document.getElementById("formStatus");
+
+    status.textContent =
+      "Your form is complete, but it has not been submitted. " +
+      "Online property registration will be enabled after we connect RoomKhojo to its database.";
+
+    status.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest"
+    });
+  }
+);
+
+/* DEMO BUTTONS */
+
+window["showDemoMessage"] = function () {
+  alert(
+    "This is a demonstration listing. Real property details and enquiries will be available after launch."
+  );
+}  
+  void showDemoMessage;
+
+function showContactMessage() {
+  alert(
+    "RoomKhojo contact details will be added before public launch."
+  );
+} 
+  /* ROOMKHOJO PROPERTY NAVIGATION */
+
+// Open Google Maps from the tenant's current location
+function openGoogleMapsDirections(destination = "") {
+
+    if (!destination) {
+        alert("Property location is not available.");
         return;
     }
 
-    status.textContent = "Detecting your current location...";
+    const mapsUrl =
+        "https://www.google.com/maps/dir/?api=1" +
+        "&destination=" + encodeURIComponent(destination) +
+        "&travelmode=driving" +
+        "&dir_action=navigate";
 
-    navigator.geolocation.getCurrentPosition(
+    window.location.href = mapsUrl;
+}
 
-        function(position) {
 
-            const latitude = position.coords.latitude;
-            const longitude = position.coords.longitude;
+// Test navigation using a PUBLIC landmark
+function tryDemoDirections() {
 
-            locationInput.value =
-                "Latitude: " + latitude +
-                ", Longitude: " + longitude;
+    const demoLocation =
+        "Gauhati Medical College and Hospital, Bhangagarh, Guwahati, Assam";
 
-            status.textContent =
-                "Location detected successfully! You can edit it manually.";
+    openGoogleMapsDirections(demoLocation);
+}
 
-        },
 
-        function() {
-            status.textContent =
-                "Unable to detect location. Please enter it manually.";
+// Actual property location requires verified access
+function requestPropertyVisit() {
 
-        },
-
-        {
-            enableHighAccuracy: true,
-            timeout: 15000,
-            maximumAge: 0
-        }
+    alert(
+        "The exact property location will be available " +
+        "after your booking and RoomKhojo service payment " +
+        "have been verified. This feature is not active yet."
     );
-  }
+} 
+  /* PREMIUM ROOMKHOJO PHOTO SLIDER */
+
+const gallery = document.getElementById("demoGallery");
+
+if (gallery) {
+
+    const slides = gallery.querySelectorAll(".gallery-slide");
+
+    const dots = document.querySelectorAll(".gallery-dots span");
+
+    const counter = document.getElementById("galleryCounter");
+
+    function updateGallery() {
+
+        const width = gallery.clientWidth;
+
+        if (!width) return;
+
+        const index = Math.min(
+            slides.length - 1,
+            Math.max(0, Math.round(gallery.scrollLeft / width))
+        );
+
+        dots.forEach(function(dot, i) {
+            dot.classList.toggle("active", i === index);
+        });
+
+        if (counter) {
+            counter.textContent =
+                (index + 1) + " / " + slides.length;
+        }
+    }
+
+    gallery.addEventListener("scroll", updateGallery, {
+        passive: true
+    });
+
+    updateGallery();
+}
+  /**
+ * @param {number} direction
+ * @returns {void}
+ */
+  function slideGallery(direction = 1) {
+
+    if (!gallery) return;
+
+    const total = gallery.querySelectorAll(".gallery-slide").length;
+
+    const current = Math.round(
+        gallery.scrollLeft / gallery.clientWidth
+    );
+
+    const next = Math.max(
+        0,
+        Math.min(total - 1, current + direction)
+    );
+
+    gallery.scrollTo({
+        left: next * gallery.clientWidth,
+        behavior: "smooth"
+    });
+} 
+  /* ROOMKHOJO PREMIUM PROPERTY DETAILS */
+
+// Open property details popup
+function openPropertyDetails() {
+
+    const dialog = document.getElementById(
+        "propertyDetailsDialog"
+    );
+
+    if (dialog && !dialog.open) {
+        dialog.showModal();
+    }
+}
+
+// Close property details popup
+function closePropertyDetails() {
+
+    const dialog = document.getElementById(
+        "propertyDetailsDialog"
+    );
+
+    if (dialog && dialog.open) {
+        dialog.close();
+    }
+}
+
+// Close popup when clicking outside
+document.getElementById("propertyDetailsDialog")
+    .addEventListener("click", function(event) {
+
+        if (event.target === this) {
+            closePropertyDetails();
+        }
+
+    });
 </script>
+
 </body>
 </html>
